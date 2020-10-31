@@ -1,0 +1,9 @@
+$font-name: 'Open Sans';
+//@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap") format("woff");
+}

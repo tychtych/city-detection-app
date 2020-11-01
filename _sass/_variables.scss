@@ -3,7 +3,6 @@ Main colors
 */
 $gradient-blue: linear-gradient(180deg, #3F3CF3 0%, rgba(255, 255, 255, 0) 100%), #1F90C0;
 $white: #FFFFFF;
-$black: #161010;
 
 /*
 Fonts
@@ -13,12 +12,7 @@ $document_font: 'Open Sans', sans-serif;
 /*
 Breakpoints
 */
-$desktop: 1440px;
-$laptop: 1280px;
-$large: 1024px;
-$medium: 800px;
-$tablet: 768px;
+$median: 552;
 $lesstablet: 542;
 $small: 500px;
-$large_mobile: 375px;
-$small_mobile: 350px;
+

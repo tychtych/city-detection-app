@@ -10,28 +10,26 @@ html {
   background-size: cover;
   background: $gradient-blue no-repeat;
 }
-
+/*
+Fonts and page setup
+ */
 .page {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
-
-
 body {
     margin: 0;
     padding: 0;
     font-family: $document_font;
     color: $white;
-
 }
 
-
-
+/*
+Intro section styling
+ */
 .intro__container {
-
   @include medium {
     max-width: 215px;
   }
@@ -42,35 +40,31 @@ body {
   font-weight: 400;
   text-align: center;
   margin: 0 0 16px 0;
-
   @include medium {
     @include font-size(24px, 33px);
     margin: 0 0 14px 0;
   }
-
 }
 
 .intro__city {
   @include font-size(72px, 98px);
-  font-weight: bold;
+  font-weight: 700;
   margin: 0 0 8px 0;
   text-align: center;
   animation: fadeIn 3s;
   display: block;
-
   @include medium {
     @include font-size(36px, 49px);
     margin: 0 0 6px 0;
   }
-
 }
-
+/*
+Animations fade in
+ */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
-
-
 
 .intro__line {
   display: block;
@@ -82,17 +76,14 @@ body {
   animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1.000);
   width: 100%;
 }
-
-
-
+/*
+Animations wipe for the line
+ */
 @keyframes wipe {
   from {
-
     width: 0;
-
   }
   to {
-
     width: 100%;
   }
 }
@@ -101,11 +92,11 @@ body {
   display: none;
 }
 
-
+/*
+Loader styles
+ */
 .loader {
-  //height: 98px;
   height: 106px;
-
 }
 
 .loader__circle {
@@ -125,35 +116,23 @@ body {
   }
 }
 
-.intro__wrap {
-  max-width: 508px;
-}
-
+/*
+Footer styles
+ */
 .footer-privacy {
   position: absolute;
   bottom: 33px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  @include small {
+    bottom: 26px;
+  }
 }
 
 .footer-privacy__title {
-  @include font-size(13px, 18px);
-  margin: 0;
-}
-
-.privacy-description__title {
-  max-width: 494px;
-  @include font-size(72px, 98px);
-  font-weight: bold;
-  margin: 32px 0 32px 0;
-}
-
-.privacy-description {
-  width: calc(100% - 64px);
-  margin: 0 auto;
-}
-
-.privacy-description__subtitle {
-  max-width: 910px;
-  @include font-size(16px, 22px);
+  @include font-size(13px, 17.7px);
+  font-weight: 700;
   margin: 0;
 }
 
@@ -161,5 +140,34 @@ body {
   text-decoration: none;
   list-style: none;
   color: $white;
+}
+
+/*
+Privacy section styling
+ */
+.privacy-description__title {
+  max-width: 494px;
+  @include font-size(72px, 98px);
+  font-weight: bold;
+  margin: 32px 0 32px 0;
+
+  @include small {
+    @include font-size(36px, 49px);
+  }
+}
+
+.privacy-description {
+  width: calc(100% - 64px);
+  margin: 0 auto;
+
+  @include medium {
+    width: calc(100% - 48px);
+  }
+}
+
+.privacy-description__subtitle {
+  max-width: 910px;
+  @include font-size(16px, 22px);
+  margin: 0;
 }
 

@@ -1,0 +1,10 @@
+<section class="footer-privacy">
+    <h3 class="footer-privacy__title">
+        {% unless page.title == "Privacy" %}
+            <a href="/privacy.html" class="footer-privacy__link"> Privacy Policy </a>
+        {% endunless %}
+        {% unless page.title == "Home" %}
+            <a href="/index.html" class="footer-privacy__link"> Home </a>
+        {% endunless %}
+    </h3>
+</section>

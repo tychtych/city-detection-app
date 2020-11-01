@@ -33,7 +33,6 @@ const getUserCity = async () => {
     }
 }
 
-
 /**
  * Returns the city by IP.
  *
@@ -44,6 +43,9 @@ const findCityByIpAddress = async (ip) => {
     const response = await fetch(`${CITY_BY_IP_API}/${ip}/json`);
     if (response.status === 200) {
         const {city} = await response.json();
+        if (!city) {
+            throw new Error("Failed to find city by ip address");
+        }
         return city;
     }
 }

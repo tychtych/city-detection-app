@@ -11,6 +11,15 @@ html {
   background: $gradient-blue no-repeat;
 }
 
+.page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
 body {
     margin: 0;
     padding: 0;
@@ -19,36 +28,40 @@ body {
 
 }
 
-.intro {
 
-}
 
 .intro__container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 
-
+  @include medium {
+    max-width: 215px;
+  }
 }
 
 .intro__title {
-  font-size: 64px;
-  line-height: 87px;
+  @include font-size(64px, 87px);
   font-weight: 400;
   text-align: center;
   margin: 0 0 16px 0;
 
+  @include medium {
+    @include font-size(24px, 33px);
+    margin: 0 0 14px 0;
+  }
+
 }
 
 .intro__city {
-  font-size: 72px;
-  line-height: 98px;
+  @include font-size(72px, 98px);
   font-weight: bold;
   margin: 0 0 8px 0;
   text-align: center;
   animation: fadeIn 3s;
   display: block;
+
+  @include medium {
+    @include font-size(36px, 49px);
+    margin: 0 0 6px 0;
+  }
 
 }
 
@@ -57,20 +70,12 @@ body {
   to { opacity: 1; }
 }
 
-.intro__line-reveal {
-  width: 100%;
-  height: 8px;
-  overflow:hidden;
-  position:absolute;
-}
 
 
 .intro__line {
   display: block;
   background: $white;
-  height: 19px;
-  position: absolute;
-  top:-5px;
+  height: 8px;
   animation: wipe 3s ease;
   animation-iteration-count: 1;
   animation-direction: normal;
@@ -82,12 +87,12 @@ body {
 
 @keyframes wipe {
   from {
-    transform: translateX(0);
+
     width: 0;
 
   }
   to {
-    transform: translateX(0);
+
     width: 100%;
   }
 }
@@ -98,7 +103,8 @@ body {
 
 
 .loader {
-  height: 98px;
+  //height: 98px;
+  height: 106px;
 
 }
 
@@ -118,3 +124,42 @@ body {
     transform: rotate(360deg);
   }
 }
+
+.intro__wrap {
+  max-width: 508px;
+}
+
+.footer-privacy {
+  position: absolute;
+  bottom: 33px;
+}
+
+.footer-privacy__title {
+  @include font-size(13px, 18px);
+  margin: 0;
+}
+
+.privacy-description__title {
+  max-width: 494px;
+  @include font-size(72px, 98px);
+  font-weight: bold;
+  margin: 32px 0 32px 0;
+}
+
+.privacy-description {
+  width: calc(100% - 64px);
+  margin: 0 auto;
+}
+
+.privacy-description__subtitle {
+  max-width: 910px;
+  @include font-size(16px, 22px);
+  margin: 0;
+}
+
+.footer-privacy__link {
+  text-decoration: none;
+  list-style: none;
+  color: $white;
+}
+

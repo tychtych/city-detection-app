@@ -1,0 +1,10 @@
+@mixin font-size($font-size, $line-height) {
+  font-size: $font-size;
+  line-height: $line-height;
+}
+
+@mixin medium {
+  @media only screen and (max-width: $lesstablet * 1px) {
+    @content;
+  }
+}

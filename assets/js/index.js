@@ -1,16 +1,23 @@
-const introContainer = document.querySelector('.intro');
-const loader = introContainer.querySelector('.loader');
-const cityTitle = introContainer.querySelector('.intro__city');
-const dynamicLine = introContainer.querySelector('.intro__line-reveal')
-
+// APIs
 const PRIMARY_GEOIP_API = 'https://geoip-db.com/json/';
-
 const CITY_BY_IP_API = 'https://ipapi.co/';
 
+//DOM elements
+const introContainer = document.querySelector('.intro');
+const loader = introContainer.querySelector('.loader');
+const introTitle  = introContainer.querySelector('.intro__title');
+const cityTitle = introContainer.querySelector('.intro__city');
+const dynamicLine = introContainer.querySelector('.intro__line')
 
 
+/**
+ * Connects to the primary API to retrieve the city,
+ * in case it fails, IPv4 from the response is used
+ * to detect the user city by IP address.
+ *
+ * @returns {Promise<string>}
+ */
 const getUserCity = async () => {
-
     try {
         const primaryResponse = await fetch(PRIMARY_GEOIP_API);
         if (primaryResponse.status === 200) {
@@ -26,6 +33,13 @@ const getUserCity = async () => {
     }
 }
 
+
+/**
+ * Returns the city by IP.
+ *
+ * @param ip address of user
+ * @returns {Promise<string>}
+ */
 const findCityByIpAddress = async (ip) => {
     const response = await fetch(`${CITY_BY_IP_API}/${ip}/json`);
     if (response.status === 200) {
@@ -39,5 +53,10 @@ getUserCity()
         loader.classList.add('hidden');
         cityTitle.textContent = city;
         dynamicLine.classList.remove('hidden')
+    })
+    .catch(() => {
+        loader.classList.add('hidden');
+        dynamicLine.classList.remove('add');
+        introTitle.textContent = 'We cannot find your city';
     });
 

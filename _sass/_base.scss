@@ -97,6 +97,9 @@ Loader styles
  */
 .loader {
   height: 106px;
+  @include medium {
+    height: 38px;
+  }
 }
 
 .loader__circle {
@@ -108,6 +111,10 @@ Loader styles
   border-radius: 50%;
   margin: auto;
   animation: spin 1s infinite linear;
+  @include medium {
+    width: 30px;
+    height: 30px;
+  }
 }
 
 @keyframes spin {
